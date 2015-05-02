@@ -5,6 +5,8 @@
  */
 package timecalculation;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author markus
@@ -16,6 +18,21 @@ public class TimeCalculation {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        TimeIntervalsParser parser = new TimeIntervalsParser(args);
+        ArrayList<TimeInterval> intervals = parser.getIntervals();
+        System.out.println("Number of intervals: " + intervals.size());
+        
+        TimeInterval totalTime = new TimeInterval();
+        
+        for (TimeInterval intervalToAdd : intervals) {
+            totalTime = totalTime.add(intervalToAdd);
+            System.out.print("Interval: ");
+            intervalToAdd.print();
+        }
+        
+        //System.out.println("Total time: " + totalTime.print());
+        
+        
+        
     }
-    
 }
